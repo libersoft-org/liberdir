@@ -1,10 +1,10 @@
 import React from 'react';
+import Item from './item';
 
-const Medium = () => {
+const Medium = (prop) => {
     return <>
-        <div className='medium'>
-
-        </div>
+        <div className='medium'>{prop.title}</div>
+        <Item />
     </>;
 };
 

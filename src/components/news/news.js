@@ -1,13 +1,11 @@
 import React from 'react';
+import Medium from './medium';
 
 const News = () => {
     return <div id='news'>
-        <div className='medium'>
-
-        </div>
-        <div className='item'>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-        </div>
+        <Medium title='Liberland TV'/>
+        <Medium title='Liberland Press'/>
+        <Medium title='Liberland State News'/>
     </div>;
 };
 
