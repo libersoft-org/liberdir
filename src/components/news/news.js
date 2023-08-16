@@ -1,11 +1,13 @@
 import React from 'react';
 import Medium from './medium';
 
+import news from './sources.json'
+
 const News = () => {
   return <div id='news'>
-    <Medium title='Liberland TV'/>
-    <Medium title='Liberland Press'/>
-    <Medium title='Liberland State News'/>
+    {news.map((item) => {
+        return <Medium title={item.title} />;
+    })}
   </div>;
 };
 
