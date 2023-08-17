@@ -6,7 +6,7 @@ import news from './sources.json'
 const News = () => {
   return <div id='news'>
     {news.map((item) => {
-        return <Medium title={item.title} />;
+        return <Medium item={item} />;
     })}
   </div>;
 };

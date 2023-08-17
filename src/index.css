@@ -86,19 +86,6 @@
   /* border: 1px solid #000; */
  }
  
- #news {
-  width: 640px;
-  max-width: 100%;
-  /* border: 1px solid #000; */
- }
- 
- #news .medium {
-  font-weight: bold;
-  border-bottom: 2px solid var(--primary-color);
-  padding: 5px 10px;
- }
- 
- 
  #footer {
   display: flex;
   justify-content: center;
