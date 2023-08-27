@@ -1,19 +1,19 @@
 import React from 'react';
 import './item.css'
+import RelativeTime from '../general/RelativeTime';
 
-const Item = () => {
+const Item = ({article}) => {
   return <div className='item'>
-    <div>
-      <img className='image' src={process.env.PUBLIC_URL + '/placeholder.jpg'} alt="news_image" />
-    </div>
+    {article.relationsCdn && article.relationsCdn.fileUrl &&   <div>
+      <img className='image' src={article.relationsCdn.fileUrl} alt="news_image" />
+    </div>}
     <div className='title'>
-      Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+      {article.title}
     </div>
     <div className='time'>
-      10 minutes ago
+      <RelativeTime time={article.created}></RelativeTime>
     </div>
-    <div className='description'>
-      Sed convallis magna eu sem. Integer tempor. Phasellus et lorem id felis nonummy placerat. Mauris suscipit, ligula sit amet pharetra semper, nibh ante cursus purus, vel sagittis velit mauris vel metus. Proin pede metus, vulputate nec, fermentum fringilla, vehicula vitae, justo. Mauris dictum facilisis augue. Temporibus autem
+    <div className='description' dangerouslySetInnerHTML={{ __html:article.perex}}>
     </div>
   </div>;
 };

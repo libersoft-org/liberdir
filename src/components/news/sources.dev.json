@@ -1,0 +1,11 @@
+[
+  {
+    "title": "Liberland State News",
+    "url": "http://localhost:8088/https://api.liberland.org/news?lang=en&page=1&limit=3&order=-published"
+  },
+  {
+    "title": "Liberland State News (older)",
+    "url": "http://localhost:8088/https://api.liberland.org/news?lang=en&page=2&limit=3&order=-published"
+  }
+
+]

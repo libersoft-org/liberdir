@@ -25,7 +25,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   /* white-space: nowrap; */
-  height: 130px;
+  min-height: 200px;
   color: #808080;
   text-align: justify;
 }

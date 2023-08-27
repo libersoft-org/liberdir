@@ -2,31 +2,33 @@ import React from 'react';
 import Item from './item';
 import axios from 'axios';
 
-const Medium = (prop) => {
-  const {title, url} = prop.item;
+import "./medium.css";
 
-  const [articles, setArticles] = React.useState(null);
+const Medium = (prop) => {
+  const { title, url } = prop.item;
+
+  const [articles, setArticles] = React.useState([]);
 
   React.useEffect(() => {
-    // const testURL = 'http://localhost:8088/https://api.liberland.org/news?lang=en&page=1&limit=2&order=-published';
-    // const myInit = {
+    //     const testURL = 'http://localhost:8088/https://api.liberland.org/news?lang=en&page=1&limit=2&order=-published';
+    //     const myInit = {
     //   method: 'HEAD',
     //   mode: 'no-cors',
-    // };
-  
-    // const myRequest = new Request(testURL, myInit);
-  
-    // fetch(myRequest).then(function(response) {
-    //   setArticles(response)
-    // }).then(function(response) {
-    //   console.log(response);
-    // }).catch(function(e){
-    //   console.log(e);
-    // });
+    //     };
+
+    //     const myRequest = new Request(testURL, myInit);
+
+    //     fetch(myRequest).then(function(response) {
+    //       setArticles(response)
+    //     }).then(function(response) {
+    //       console.log(response);
+    //     }).catch(function(e){
+    //       console.log(e);
+    //     });
 
     axios({
       method: 'get',
-      url: 'https://api.liberland.org/news?lang=en&page=1&limit=2&order=-published',//url,
+      url,
       withCredentials: false,
       mode: 'no-cors',
       headers: {
@@ -37,13 +39,16 @@ const Medium = (prop) => {
     }).then((response) => {
       setArticles(response.data);
     });
-  }, []);
+  }, [url]);
 
-  return <>
-    <div className='medium'>{title}</div>
-    <Item />
-    <Item />
-  </>;
+  const items = articles.map(article => <Item key={article.id} article={article} />);
+
+  return <div className='medium'>
+    <div className='medium-title'>{title}</div>
+    <div>
+      {items}
+    </div>
+  </div>;
 };
 
 export default Medium;
