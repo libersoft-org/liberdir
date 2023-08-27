@@ -1,6 +1,8 @@
 #news .item {
   padding: 10px;
   background-color: #FFF;
+  clear: left;
+  overflow: auto;
 }
 
 #news .item .image {
@@ -25,8 +27,9 @@
   overflow: hidden;
   text-overflow: ellipsis;
   /* white-space: nowrap; */
-  min-height: 200px;
+  /* min-height: 250px; */
   color: #808080;
   text-align: justify;
+
 }
   

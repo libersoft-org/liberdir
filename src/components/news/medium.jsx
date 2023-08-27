@@ -1,11 +1,20 @@
 import React from 'react';
 import Item from './item';
 import axios from 'axios';
+import jsonpath from 'jsonpath';
 
 import "./medium.css";
 
+export class Article {
+  id;
+  title;
+  text;
+  imageSrc;
+  date;
+}
+
 const Medium = (prop) => {
-  const { title, url } = prop.item;
+  const { title, url, fields } = prop.item;
 
   const [articles, setArticles] = React.useState([]);
 
@@ -30,14 +39,29 @@ const Medium = (prop) => {
       method: 'get',
       url,
       withCredentials: false,
-      mode: 'no-cors',
+      //mode: 'no-cors',
       headers: {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
         "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length",
       },
     }).then((response) => {
-      setArticles(response.data);
+
+      let articles = [];
+      for (let i = 0; i < response.data.length; i++) {
+        const element = response.data[i];
+        let newArticle = {};
+
+        for (const [key, value] of Object.entries(fields)) {
+          if (value === '-') continue;
+          newArticle[key] = jsonpath.query(element, value);
+        }
+
+        articles.push(newArticle)
+      }
+
+
+      setArticles(articles);
     });
   }, [url]);
 
