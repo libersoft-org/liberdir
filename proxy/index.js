@@ -9,6 +9,10 @@ app.use(createProxyMiddleware({
   pathRewrite: (path, req) => {
     const url = new URL(req.originalUrl.substring(1));
     return url.pathname + url.search;
+  
+  },
+  onProxyReq: (proxyReq) => {
+    proxyReq.removeHeader('referer');
   },
   changeOrigin: true,
   logger: console
