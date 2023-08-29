@@ -1,48 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Item from './item';
 import axios from 'axios';
+
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 const Medium = (prop) => {
   const {title, url} = prop.item;
 
-  const [articles, setArticles] = React.useState(null);
+  const [articles, setArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState("");
 
   React.useEffect(() => {
-    // const testURL = 'http://localhost:8088/https://api.liberland.org/news?lang=en&page=1&limit=2&order=-published';
-    // const myInit = {
-    //   method: 'HEAD',
-    //   mode: 'no-cors',
-    // };
-  
-    // const myRequest = new Request(testURL, myInit);
-  
-    // fetch(myRequest).then(function(response) {
-    //   setArticles(response)
-    // }).then(function(response) {
-    //   console.log(response);
-    // }).catch(function(e){
-    //   console.log(e);
-    // });
-
-    axios({
-      method: 'get',
-      url: 'https://api.liberland.org/news?lang=en&page=1&limit=2&order=-published',//url,
-      withCredentials: false,
-      mode: 'no-cors',
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
-        "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length",
-      },
-    }).then((response) => {
+    axios(url).then((response) => {
       setArticles(response.data);
-    });
+      setIsLoading(false);
+      setError(false);
+    }).catch(() => {
+      setError("Unable to fetch news");
+      setIsLoading(false);
+   });
   }, []);
 
   return <>
     <div className='medium'>{title}</div>
-    <Item />
-    <Item />
+    {isLoading ? <LoadingSpinner /> : error ? <div className="error">{error}</div> : articles.map((item) => {
+      return <Item key={item.title} data={item}/>
+    })}
   </>;
 };
 

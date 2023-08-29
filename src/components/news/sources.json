@@ -1,6 +1,6 @@
 [
   {
     "title": "Liberland State News",
-    "url": "https://api.liberland.org/news?lang=en&page=1&limit=2&order=-published"
+    "url": "http://localhost:8088/liberlandorg"
   }
 ]
