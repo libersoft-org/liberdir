@@ -2,6 +2,13 @@ const express = require('express')
 const cors = require('cors')
 const { createProxyMiddleware } = require('http-proxy-middleware')
 
+// make possible to terminate process
+var process = require('process')
+process.on('SIGINT', () => {
+  console.info("Interrupted")
+  process.exit(0)
+})
+
 const app = express()
 app.use(cors())
 app.use(createProxyMiddleware({
