@@ -1,27 +1,27 @@
 @font-face {
   font-family: 'Ubuntu';
-  /* src: url('../font/Ubuntu-R.ttf') format('truetype'); */
+  src: url('/public/Ubuntu-R.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
  }
  
  @font-face {
   font-family: 'Ubuntu';
-  /* src: url('../font/Ubuntu-RI.ttf') format('truetype'); */
+  src: url('/public/Ubuntu-RI.ttf') format('truetype');
   font-weight: normal;
   font-style: italic;
  }
  
  @font-face {
   font-family: 'Ubuntu';
-  /* src: url('../font/Ubuntu-B.ttf') format('truetype'); */
+  src: url('/public/Ubuntu-B.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
  }
  
  @font-face {
   font-family: 'Ubuntu';
-  /* src: url('../font/Ubuntu-BI.ttf') format('truetype'); */
+  src: url('/public/Ubuntu-BI.ttf') format('truetype');
   font-weight: bold;
   font-style: italic;
  }
@@ -84,50 +84,6 @@
   width: var(--page-max-width);
   max-width: 100%;
   /* border: 1px solid #000; */
- }
- 
- #news {
-  width: 640px;
-  max-width: 100%;
-  /* border: 1px solid #000; */
- }
- 
- #news .medium {
-  font-weight: bold;
-  border-bottom: 2px solid var(--primary-color);
-  padding: 5px 10px;
- }
- 
- #news .item {
-  padding: 10px;
-  background-color: #FFF;
- }
- 
- #news .item .image {
-  float: left;
-  width: 240px;
-  max-width: 100%;
-  border-radius: 10px;
-  padding: 0px 10px 10px 0px;
- }
- 
- #news .item .title {
-  font-weight: bold;
-  padding-bottom: 5px;
- }
- 
- #news .item .time {
-  padding-bottom: 10px;
-  font-size: small;
- }
- 
- #news .item .description {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  /* white-space: nowrap; */
-  height: 130px;
-  color: #808080;
-  text-align: justify;
  }
  
  #footer {
