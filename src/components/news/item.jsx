@@ -18,23 +18,21 @@ const getTextContentOnly = (html) => {
     return texts;
 }
 
-const Item = ({article}) => {
-  const {title, relationsCdn, published, perex, titleUri} = article;
-  
+const Item = ({ article }) => {
   return <div className='item'>
-    {relationsCdn && relationsCdn.fileUrl && <div>
-      <img className='image' src={relationsCdn.fileUrl} alt="news_image" />
-    </div>}
-    <div className='title'>
-      <a href={`https://liberland.org/en/news/${titleUri}`}>
-        {title}
-      </a>
-    </div>
+    {article.imageSrc && 
+      <img className='image' src={article.imageSrc} alt="news_image" />
+    }
+    {article.link ?
+      <a href={article.baseUri + article.link} target='_blank' rel="noreferrer" className='title'>{getTextContentOnly(article.title)}</a>
+      :
+      <div className='title'>{getTextContentOnly(article.title)}</div>
+    }
     <div className='time'>
-      <RelativeTime time={article.created}></RelativeTime>
+      <RelativeTime time={article.date}></RelativeTime>
     </div>
-    <div className='description' >
-      {getTextContentOnly(perex)}
+    <div className='description'>
+      {getTextContentOnly(article.text)}
     </div>
   </div>;
 };
