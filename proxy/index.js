@@ -21,6 +21,12 @@ app.use(createProxyMiddleware({
   onProxyReq: (proxyReq) => {
     proxyReq.removeHeader('referer');
   },
+  onProxyRes: (proxyRes) => {
+    // liberlandpress return localhost for access-control-allow-origin and as result browser will block request,
+    // therefore we rewrite it with '*'  
+    proxyRes.headers['access-control-allow-origin'] = '*';
+  },
+  
   changeOrigin: true,
   logger: console
 }))
