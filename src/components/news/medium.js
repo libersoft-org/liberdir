@@ -3,6 +3,7 @@ import Item from './item';
 import axios from 'axios';
 
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+import "./medium.css";
 
 const Medium = (prop) => {
   const {title, url} = prop.item;
@@ -22,12 +23,14 @@ const Medium = (prop) => {
    });
   }, []);
 
-  return <>
-    <div className='medium'>{title}</div>
-    {isLoading ? <LoadingSpinner /> : error ? <div className="error">{error}</div> : articles.map((item) => {
-      return <Item key={item.title} data={item}/>
-    })}
-  </>;
+  const items = articles.map(article => <Item key={article.id} article={article} />);
+
+  return <div className='medium'>
+    <div className='medium-title'>{title}</div>
+    {isLoading ? <LoadingSpinner /> : error ? <div className="error">{error}</div> : <div>
+      {items}
+    </div>}
+  </div>;
 };
 
 export default Medium;
