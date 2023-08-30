@@ -1,21 +1,22 @@
 const express = require('express')
 const cors = require('cors')
+const { createProxyMiddleware } = require('http-proxy-middleware')
 
 const app = express()
 app.use(cors())
-
-const sites = {
-  'liberlandorg': 'https://api.liberland.org/news?lang=en&page=1&limit=2&order=-published',
-}
-
-app.get('/:site', async (req, resp) => {
-  await fetch(sites[req.params.site])
-    .then((data) => data.json())
-    .then((data) => {
-      resp.send(data);
-    })
-    .catch((err) => console.log(err));
-});
+app.use(createProxyMiddleware({
+  router: (req) => new URL(req.path.substring(1)),
+  pathRewrite: (path, req) => {
+    const url = new URL(req.originalUrl.substring(1));
+    return url.pathname + url.search;
+  
+  },
+  onProxyReq: (proxyReq) => {
+    proxyReq.removeHeader('referer');
+  },
+  changeOrigin: true,
+  logger: console
+}))
 
 app.listen(8088, () => {
   console.info('proxy server is running on port 8088')
