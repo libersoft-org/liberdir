@@ -24,7 +24,7 @@ const Item = ({ article }) => {
       <img className='image' src={article.imageSrc} alt="news_image" />
     }
     {article.link ?
-      <a href={article.baseUri + article.link} target='_blank' rel="noreferrer" className='title'>{getTextContentOnly(article.title)}</a>
+      <a href={(article.baseUri ?? '') + article.link} target='_blank' rel="noreferrer" className='title'>{getTextContentOnly(article.title)}</a>
       :
       <div className='title'>{getTextContentOnly(article.title)}</div>
     }
