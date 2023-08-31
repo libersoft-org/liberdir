@@ -1,0 +1,85 @@
+#weather {
+  .weather-title {
+    font-weight: bold;
+    border-bottom: 2px solid var(--primary-color);
+    padding: 5px 10px;
+  }
+
+  .weater-tiles {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    //padding: 0px 5px;
+    //justify-content: space-between;
+
+    .weater-tile {
+      display: flex;
+      flex-direction: column;
+      height: 120px;
+      width: 170px;
+      background-color: #FFF;
+      align-items: center;
+      // border-right: 1px solid var(--primary-color);
+      padding: 7px;
+      margin-bottom: 5px;
+      margin-right: 5px;
+
+      // &:last-child {
+      //   border-right: none;
+      // }
+
+    
+      .weater-info {
+        display: flex;
+      }
+      .weater-temperature,
+      .weater-temperature-f {
+        margin-left: 15px;
+        .weater-temperature-min {
+          font-weight: bold;
+          font-size: 0.95em;
+          white-space: nowrap;
+          opacity: 0.6;
+        }
+
+        .weater-temperature-max {
+          font-weight: bold;
+          font-size: 1.5em;
+          white-space: nowrap;
+        }
+      }
+      .weater-temperature {
+        .weater-temperature-max::after,
+        .weater-temperature-min::after {
+          content: "°C";
+        }
+      }
+      .weater-temperature-f {
+        .weater-temperature-max::after,
+        .weater-temperature-min::after {
+          content: "°F";
+        }
+      }
+
+      .weater-icon {
+        background-color: skyblue;
+        object-fit: contain;
+        border-radius: 8px;
+        width: 80px;
+        height: 80px;
+      }
+
+      .owi-icon {
+        // font-weight: bold;
+        font-size: 50px;
+        padding: 10px;
+      }
+
+      .weater-title {
+        font-weight: bold;
+        font-size: 1.1em;
+        padding-top: 5px;
+      }
+    }
+  }
+}
