@@ -1,6 +1,41 @@
 [
   {
+    "title": "Liberland TV",
+    "url": "https://liberdir-proxy.zimco.com/https://liberlandtv.com/wp-json/wp/v2/posts?_embed&page=1&per_page=2",
+    "fields": {
+      "id": "id",
+      "title": "title.rendered",
+      "text": "excerpt.rendered",
+      "imageSrc": "_embedded['wp:featuredmedia'][0].source_url",
+      "date": "date",
+      "link": "link",
+      "baseUri": "-"
+    }
+  },
+  {
+    "title": "Liberland Press",
+    "url": "https://liberdir-proxy.zimco.com/https://liberlandpress.com/wp-json/wp/v2/posts?_embed&categories=19&page=1&per_page=2",
+    "fields": {
+      "id": "id",
+      "title": "title.rendered",
+      "text": "excerpt.rendered",
+      "imageSrc": "_embedded['wp:featuredmedia'][0].source_url",
+      "date": "date",
+      "link": "link",
+      "baseUri": "-"
+    }
+  },
+  {
     "title": "Liberland State News",
-    "url": "http://localhost:8088/liberlandorg"
+    "url": "https://liberdir-proxy.zimco.com/https://api.liberland.org/news?lang=en&page=1&limit=2&order=-published",
+    "fields": {
+      "id": "id",
+      "title": "title",
+      "text": "perex",
+      "imageSrc": "relationsCdn.fileUrl",
+      "date": "created",
+      "link": "titleUri",
+      "baseUri": "https://liberland.org/en/news/"
+    }
   }
 ]
