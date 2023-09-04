@@ -1,4 +1,5 @@
 import './App.css';
+import Namedays from './components/Namedays';
 import News from './components/news/news';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <div id='content'>
         <div className='inside'>
           <News />
+          <Namedays />
         </div>
       </div>
       <div id='footer'>
