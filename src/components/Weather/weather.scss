@@ -9,76 +9,122 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    //padding: 0px 5px;
-    //justify-content: space-between;
 
     .weater-tile {
       display: flex;
       flex-direction: column;
       height: 120px;
       width: 170px;
-      background-color: #FFF;
+      background-color: #fff;
       align-items: center;
-      // border-right: 1px solid var(--primary-color);
       padding: 7px;
       margin-bottom: 5px;
       margin-right: 5px;
 
-      // &:last-child {
-      //   border-right: none;
-      // }
-
-    
       .weater-info {
         display: flex;
       }
-      .weater-temperature,
-      .weater-temperature-f {
+      .weater-temperature {
         margin-left: 15px;
-        .weater-temperature-min {
+        .weater-temperature-min,
+        .weater-temperature-max {
           font-weight: bold;
-          font-size: 0.95em;
+          font-size: 1.7em;
           white-space: nowrap;
-          opacity: 0.6;
+          .weater-temperature-label {
+            display: inline-block;
+            font-size: 1rem;
+            white-space: nowrap;
+            width: 22px;
+            opacity: 0.8;
+          }
+        }
+
+        .weater-temperature-min {
+          opacity: 0.8;
+          color: rgb(30, 71, 194);
         }
 
         .weater-temperature-max {
-          font-weight: bold;
-          font-size: 1.5em;
-          white-space: nowrap;
+          color: rgb(194, 30, 30);
+        }
+
+        .weater-temperature-unit {
+          padding: 8px;
+          .weater-temperature-unit-switch {
+            font-size: 1em;
+            opacity: 0.2;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 5px;
+            &:hover {
+              opacity: 0.4;
+            }
+            &.selected {
+              opacity: 0.8;
+            }
+          }
         }
       }
       .weater-temperature {
         .weater-temperature-max::after,
         .weater-temperature-min::after {
-          content: "°C";
+          content: "°";
         }
       }
-      .weater-temperature-f {
-        .weater-temperature-max::after,
-        .weater-temperature-min::after {
-          content: "°F";
-        }
-      }
-
       .weater-icon {
-        background-color: skyblue;
+        display: block;
         object-fit: contain;
-        border-radius: 8px;
-        width: 80px;
-        height: 80px;
+        width: 60px;
+        height: 60px;
+        padding: 5px;
+        color: darkgray;
       }
-
-      .owi-icon {
-        // font-weight: bold;
-        font-size: 50px;
-        padding: 10px;
+      .weater-description {
+        padding-top: 5px;
+        text-align: center;
+        font-size: 0.8em;
+        color: darkgray;
       }
 
       .weater-title {
         font-weight: bold;
         font-size: 1.1em;
         padding-top: 5px;
+        opacity: 0.8;
+      }
+    }
+
+    .current-weater-tile {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 2px;
+
+      .weater-icon {
+        display: block;
+        object-fit: contain;
+        padding-right: 7px;
+        color: rgb(96, 96, 96);
+      }
+
+      .weater-temperature {
+        font-weight: bold;
+        font-size: 1.2em;
+        white-space: nowrap;
+      }
+
+      .weater-temperature-unit {
+        .weater-temperature-unit-switch {
+          font-size: 1em;
+          opacity: 0.8;
+          font-weight: bold;
+          cursor: pointer;
+          padding: 5px;
+          &:hover {
+            opacity: 0.4;
+          }
+        }
       }
     }
   }
