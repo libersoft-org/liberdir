@@ -16,4 +16,9 @@
     animation: spinner 1.5s linear infinite;
     margin-left: auto;
     margin-right: auto;
+    &.small {
+      border-width: 3px;
+      width: 10px;
+      height: 10px;
+    }
 }

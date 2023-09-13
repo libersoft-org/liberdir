@@ -1,5 +1,6 @@
 {
 	"0":{
+		"icon": "sun",
 		"day":{
 			"description":"Sunny",
 			"image":"http://openweathermap.org/img/wn/01d@2x.png"
@@ -10,6 +11,7 @@
 		}
 	},
 	"1":{
+		"icon": "sun",
 		"day":{
 			"description":"Mainly Sunny",
 			"image":"http://openweathermap.org/img/wn/01d@2x.png"
@@ -20,6 +22,7 @@
 		}
 	},
 	"2":{
+		"icon": "cloud-sun",
 		"day":{
 			"description":"Partly Cloudy",
 			"image":"http://openweathermap.org/img/wn/02d@2x.png"
@@ -30,6 +33,7 @@
 		}
 	},
 	"3":{
+		"icon": "cloud",
 		"day":{
 			"description":"Cloudy",
 			"image":"http://openweathermap.org/img/wn/03d@2x.png"
@@ -40,6 +44,7 @@
 		}
 	},
 	"45":{
+		"icon": "smog",
 		"day":{
 			"description":"Foggy",
 			"image":"http://openweathermap.org/img/wn/50d@2x.png"
@@ -50,6 +55,7 @@
 		}
 	},
 	"48":{
+		"icon": "smog",
 		"day":{
 			"description":"Rime Fog",
 			"image":"http://openweathermap.org/img/wn/50d@2x.png"
@@ -60,6 +66,7 @@
 		}
 	},
 	"51":{
+		"icon": "cloud-rain",
 		"day":{
 			"description":"Light Drizzle",
 			"image":"http://openweathermap.org/img/wn/09d@2x.png"
@@ -70,6 +77,7 @@
 		}
 	},
 	"53":{
+		"icon": "cloud-showers-heavy",
 		"day":{
 			"description":"Drizzle",
 			"image":"http://openweathermap.org/img/wn/09d@2x.png"
@@ -80,6 +88,7 @@
 		}
 	},
 	"55":{
+		"icon": "cloud-showers-heavy",
 		"day":{
 			"description":"Heavy Drizzle",
 			"image":"http://openweathermap.org/img/wn/09d@2x.png"
@@ -90,6 +99,7 @@
 		}
 	},
 	"56":{
+		"icon": "cloud-showers-heavy",
 		"day":{
 			"description":"Light Freezing Drizzle",
 			"image":"http://openweathermap.org/img/wn/09d@2x.png"
@@ -100,6 +110,7 @@
 		}
 	},
 	"57":{
+		"icon": "cloud-showers-heavy",
 		"day":{
 			"description":"Freezing Drizzle",
 			"image":"http://openweathermap.org/img/wn/09d@2x.png"
@@ -110,6 +121,7 @@
 		}
 	},
 	"61":{
+		"icon": "cloud-rain",
 		"day":{
 			"description":"Light Rain",
 			"image":"http://openweathermap.org/img/wn/10d@2x.png"
@@ -120,6 +132,7 @@
 		}
 	},
 	"63":{
+		"icon": "cloud-rain",
 		"day":{
 			"description":"Rain",
 			"image":"http://openweathermap.org/img/wn/10d@2x.png"
@@ -130,6 +143,7 @@
 		}
 	},
 	"65":{
+		"icon": "cloud-rain",
 		"day":{
 			"description":"Heavy Rain",
 			"image":"http://openweathermap.org/img/wn/10d@2x.png"
@@ -140,6 +154,7 @@
 		}
 	},
 	"66":{
+		"icon": "cloud-rain",
 		"day":{
 			"description":"Freezing Rain",
 			"image":"http://openweathermap.org/img/wn/10d@2x.png"
@@ -150,6 +165,7 @@
 		}
 	},
 	"67":{
+		"icon": "cloud-rain",
 		"day":{
 			"description":"Freezing Rain",
 			"image":"http://openweathermap.org/img/wn/10d@2x.png"
@@ -160,6 +176,7 @@
 		}
 	},
 	"71":{
+		"icon": "snowflake",
 		"day":{
 			"description":"Light Snow",
 			"image":"http://openweathermap.org/img/wn/13d@2x.png"
@@ -170,6 +187,7 @@
 		}
 	},
 	"73":{
+		"icon": "snowflake",
 		"day":{
 			"description":"Snow",
 			"image":"http://openweathermap.org/img/wn/13d@2x.png"
@@ -180,6 +198,7 @@
 		}
 	},
 	"75":{
+		"icon": "snowflake",
 		"day":{
 			"description":"Heavy Snow",
 			"image":"http://openweathermap.org/img/wn/13d@2x.png"
@@ -190,6 +209,7 @@
 		}
 	},
 	"77":{
+		"icon": "snowflake",
 		"day":{
 			"description":"Snow Grains",
 			"image":"http://openweathermap.org/img/wn/13d@2x.png"
@@ -200,6 +220,7 @@
 		}
 	},
 	"80":{
+		"icon": "cloud-rain",
 		"day":{
 			"description":"Light Showers",
 			"image":"http://openweathermap.org/img/wn/09d@2x.png"
@@ -210,6 +231,7 @@
 		}
 	},
 	"81":{
+		"icon": "cloud-rain",
 		"day":{
 			"description":"Showers",
 			"image":"http://openweathermap.org/img/wn/09d@2x.png"
@@ -220,6 +242,7 @@
 		}
 	},
 	"82":{
+		"icon": "cloud-rain",
 		"day":{
 			"description":"Heavy Showers",
 			"image":"http://openweathermap.org/img/wn/09d@2x.png"
@@ -230,6 +253,7 @@
 		}
 	},
 	"85":{
+		"icon": "snowflake",
 		"day":{
 			"description":"Snow Showers",
 			"image":"http://openweathermap.org/img/wn/13d@2x.png"
@@ -240,6 +264,7 @@
 		}
 	},
 	"86":{
+		"icon": "snowflake",
 		"day":{
 			"description":"Snow Showers",
 			"image":"http://openweathermap.org/img/wn/13d@2x.png"
@@ -250,6 +275,7 @@
 		}
 	},
 	"95":{
+		"icon": "cloud-bolt",
 		"day":{
 			"description":"Thunderstorm",
 			"image":"http://openweathermap.org/img/wn/11d@2x.png"
@@ -260,6 +286,7 @@
 		}
 	},
 	"96":{
+		"icon": "cloud-bolt",
 		"day":{
 			"description":"Thunderstorm With Hail",
 			"image":"http://openweathermap.org/img/wn/11d@2x.png"
@@ -270,6 +297,7 @@
 		}
 	},
 	"99":{
+		"icon": "cloud-bolt",
 		"day":{
 			"description":"Thunderstorm With Hail",
 			"image":"http://openweathermap.org/img/wn/11d@2x.png"
