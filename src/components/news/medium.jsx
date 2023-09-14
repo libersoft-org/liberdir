@@ -4,7 +4,6 @@ import axios from 'axios';
 import jsonpath from 'jsonpath';
 
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
-import "./medium.css";
 
 export class Article {
   id;

@@ -70,11 +70,11 @@ const Weather = ({maxDays, current}) => {
       setError("Unable to fetch weather data. " + err);
       setIsLoading(false);
     });
-  }, [maxDays]);
+  }, [maxDays, current]);
 
   let items = [];
 
-  if (current && forecasts.length == 1) {
+  if (current && forecasts.length === 1) {
     items = forecasts.map(item => <CurrentWeatherTile key={item.time} forecast={item} />);
   } else {
     items = forecasts.map(item => <ForecastTile key={item.time} forecast={item} />);

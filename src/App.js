@@ -25,7 +25,7 @@ function App() {
           <div className='main-content-column'><News /></div>
           <div className='main-content-column'>
             <Weather maxDays={3}/>
-            <ExchangeRates currencies={["EUR","USD","GBP","CZK","RSD"]}/>
+            <ExchangeRates currencies={["EUR","USD","GBP","CZK","RSD","HUF"]}/>
             <Namedays />
           </div>
         </div>
