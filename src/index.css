@@ -66,8 +66,16 @@
   max-width: 100%;
   padding: 10px;
   /* border: 1px solid #000; */
+  display: flex;
  }
- 
+ .spacer {
+  flex-grow: 1;
+ }
+
+ #header .inside .weather {
+  align-self: flex-end;
+ }
+
  #header .inside .logo {
   font-size: 25pt;
   font-weight: bold;

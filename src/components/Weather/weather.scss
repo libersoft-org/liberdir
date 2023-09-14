@@ -1,0 +1,131 @@
+#weather {
+  .weather-title {
+    font-weight: bold;
+    border-bottom: 2px solid var(--primary-color);
+    padding: 5px 10px;
+  }
+
+  .weather-tiles {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .weather-tile {
+      display: flex;
+      flex-direction: column;
+      height: 120px;
+      width: 170px;
+      background-color: #fff;
+      align-items: center;
+      padding: 7px;
+      margin-bottom: 5px;
+      margin-right: 5px;
+
+      .weather-info {
+        display: flex;
+      }
+      .weather-temperature {
+        margin-left: 15px;
+        .weather-temperature-min,
+        .weather-temperature-max {
+          font-weight: bold;
+          font-size: 1.7em;
+          white-space: nowrap;
+          .weather-temperature-label {
+            display: inline-block;
+            font-size: 1rem;
+            white-space: nowrap;
+            width: 22px;
+            opacity: 0.8;
+          }
+        }
+
+        .weather-temperature-min {
+          opacity: 0.8;
+          color: rgb(30, 71, 194);
+        }
+
+        .weather-temperature-max {
+          color: rgb(194, 30, 30);
+        }
+
+        .weather-temperature-unit {
+          padding: 8px;
+          .weather-temperature-unit-switch {
+            font-size: 1em;
+            opacity: 0.2;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 5px;
+            &:hover {
+              opacity: 0.4;
+            }
+            &.selected {
+              opacity: 0.8;
+            }
+          }
+        }
+      }
+      .weather-temperature {
+        .weather-temperature-max::after,
+        .weather-temperature-min::after {
+          content: "°";
+        }
+      }
+      .weather-icon {
+        display: block;
+        object-fit: contain;
+        width: 60px;
+        height: 60px;
+        padding: 5px;
+        color: darkgray;
+      }
+      .weather-description {
+        padding-top: 5px;
+        text-align: center;
+        font-size: 0.8em;
+        color: darkgray;
+      }
+
+      .weather-title {
+        font-weight: bold;
+        font-size: 1.1em;
+        padding-top: 5px;
+        opacity: 0.8;
+      }
+    }
+
+    .current-weather-tile {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 2px;
+
+      .weather-icon {
+        display: block;
+        object-fit: contain;
+        padding-right: 7px;
+        color: rgb(96, 96, 96);
+      }
+
+      .weather-temperature {
+        font-weight: bold;
+        font-size: 1.2em;
+        white-space: nowrap;
+      }
+
+      .weather-temperature-unit {
+        .weather-temperature-unit-switch {
+          font-size: 1em;
+          opacity: 0.8;
+          font-weight: bold;
+          cursor: pointer;
+          padding: 5px;
+          &:hover {
+            opacity: 0.4;
+          }
+        }
+      }
+    }
+  }
+}

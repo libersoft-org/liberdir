@@ -30,7 +30,11 @@ const Medium = ({item}) => {
         let newArticle = {};
 
         for (const [key, value] of Object.entries(fields)) {
-          if (key === 'baseUri' || value === '-') continue;
+          if (key === 'baseUri' && value !== '-') {
+            newArticle[key] = value;
+            continue;
+          }
+          if (value === '-') continue;
           newArticle[key] = jsonpath.query(element, value);
         }
         articles.push(newArticle);
