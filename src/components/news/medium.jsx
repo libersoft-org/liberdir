@@ -52,7 +52,7 @@ const Medium = ({item}) => {
   const items = articles.map(article => <Item key={article.id} article={article} />);
 
   return <div className='medium'>
-    <div className='medium-title'>{title}</div>
+    <div className='main-area-title'>{title}</div>
     {isLoading ? <LoadingSpinner /> : error ? <div className="error">{error}</div> : <div>
       {items}
     </div>}

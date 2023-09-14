@@ -1,4 +1,5 @@
 import './App.css';
+import ExchangeRates from './components/ExchangeRates/ExchangeRates';
 import Namedays from './components/Namedays';
 import News from './components/news/news';
 import Weather from './components/Weather/Weather';
@@ -24,6 +25,7 @@ function App() {
           <div className='main-content-column'><News /></div>
           <div className='main-content-column'>
             <Weather maxDays={3}/>
+            <ExchangeRates currencies={["EUR","USD","GBP","CZK","RSD"]}/>
             <Namedays />
           </div>
         </div>

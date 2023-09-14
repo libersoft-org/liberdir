@@ -14,12 +14,7 @@
   object-fit: contain;
   height: 175px;
 }
-   
-#news .item .title {
-  font-weight: bold;
-  padding-bottom: 5px;
-}
-   
+      
 #news .item .time {
   padding-bottom: 10px;
   font-size: small;

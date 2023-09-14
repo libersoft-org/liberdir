@@ -1,10 +1,5 @@
 #weather {
-  .weather-title {
-    font-weight: bold;
-    border-bottom: 2px solid var(--primary-color);
-    padding: 5px 10px;
-  }
-
+  
   .weather-tiles {
     display: flex;
     flex-direction: row;
