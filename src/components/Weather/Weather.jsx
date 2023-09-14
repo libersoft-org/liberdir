@@ -81,7 +81,7 @@ const Weather = ({maxDays, current}) => {
   }
 
   return <div id='weather'>
-        {!current && <div className='weather-title'>Weather in Liberland</div>}
+        {!current && <div className='main-area-title'>Weather in Liberland</div>}
         {isLoading ? <LoadingSpinner small={current} /> : error ? <div className="error">{error}</div> : <div className='weather-tiles'>
       {items}
     </div>}

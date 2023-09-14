@@ -1,0 +1,62 @@
+.exchange-rates-wrapper {
+  background-color: white;
+  display: flex;
+  width: 170px;
+  align-items: center;
+  padding: 7px;
+
+  .exchage-rates-results {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex: 1;
+  }
+}
+
+.exchage-rates-currency-value {
+  padding: 5px;
+  margin: 2px;
+  display: flex;
+  align-items: center;
+
+  .currency {
+    font-size: 1.1em;
+    opacity: 0.6;
+  }
+  .value {
+    font-size: 1.3em;
+    font-family: "Courier New", Courier, monospace;
+    padding-right: 5px;
+    font-weight: bold;
+  }
+
+  .pointer {
+    cursor: pointer;
+  }
+
+  .icon {
+    width: 28px;
+    height: 20px;
+    background-repeat: no-repeat;
+    display: block;
+    margin-left: 5px;
+    border: solid 1px lightgray;
+
+    background-color: lightgray;
+    &.usd {
+      background-image: url(./images/usd.svg);
+    }
+    &.eur {
+      background-image: url(./images/eur.svg);
+    }
+    &.gbp {
+      background-image: url(./images/gbp.svg);
+    }
+    &.czk {
+      background-image: url(./images/czk.svg);
+    }
+    &.rsd {
+      background-image: url(./images/rsd.svg);
+    }
+  }
+}
