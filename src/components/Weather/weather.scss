@@ -5,12 +5,12 @@
     padding: 5px 10px;
   }
 
-  .weater-tiles {
+  .weather-tiles {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 
-    .weater-tile {
+    .weather-tile {
       display: flex;
       flex-direction: column;
       height: 120px;
@@ -21,17 +21,17 @@
       margin-bottom: 5px;
       margin-right: 5px;
 
-      .weater-info {
+      .weather-info {
         display: flex;
       }
-      .weater-temperature {
+      .weather-temperature {
         margin-left: 15px;
-        .weater-temperature-min,
-        .weater-temperature-max {
+        .weather-temperature-min,
+        .weather-temperature-max {
           font-weight: bold;
           font-size: 1.7em;
           white-space: nowrap;
-          .weater-temperature-label {
+          .weather-temperature-label {
             display: inline-block;
             font-size: 1rem;
             white-space: nowrap;
@@ -40,18 +40,18 @@
           }
         }
 
-        .weater-temperature-min {
+        .weather-temperature-min {
           opacity: 0.8;
           color: rgb(30, 71, 194);
         }
 
-        .weater-temperature-max {
+        .weather-temperature-max {
           color: rgb(194, 30, 30);
         }
 
-        .weater-temperature-unit {
+        .weather-temperature-unit {
           padding: 8px;
-          .weater-temperature-unit-switch {
+          .weather-temperature-unit-switch {
             font-size: 1em;
             opacity: 0.2;
             font-weight: bold;
@@ -66,13 +66,13 @@
           }
         }
       }
-      .weater-temperature {
-        .weater-temperature-max::after,
-        .weater-temperature-min::after {
+      .weather-temperature {
+        .weather-temperature-max::after,
+        .weather-temperature-min::after {
           content: "°";
         }
       }
-      .weater-icon {
+      .weather-icon {
         display: block;
         object-fit: contain;
         width: 60px;
@@ -80,14 +80,14 @@
         padding: 5px;
         color: darkgray;
       }
-      .weater-description {
+      .weather-description {
         padding-top: 5px;
         text-align: center;
         font-size: 0.8em;
         color: darkgray;
       }
 
-      .weater-title {
+      .weather-title {
         font-weight: bold;
         font-size: 1.1em;
         padding-top: 5px;
@@ -95,27 +95,27 @@
       }
     }
 
-    .current-weater-tile {
+    .current-weather-tile {
       display: flex;
       flex-direction: row;
       align-items: center;
       padding: 2px;
 
-      .weater-icon {
+      .weather-icon {
         display: block;
         object-fit: contain;
         padding-right: 7px;
         color: rgb(96, 96, 96);
       }
 
-      .weater-temperature {
+      .weather-temperature {
         font-weight: bold;
         font-size: 1.2em;
         white-space: nowrap;
       }
 
-      .weater-temperature-unit {
-        .weater-temperature-unit-switch {
+      .weather-temperature-unit {
+        .weather-temperature-unit-switch {
           font-size: 1em;
           opacity: 0.8;
           font-weight: bold;

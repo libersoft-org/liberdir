@@ -16,11 +16,11 @@ const CurrentWeatherTile = ({forecast}) => {
       setTemperatureUnit("f")
   }
 
-  return <div className='current-weater-tile'>
-      <FontAwesomeIcon className='weater-icon' icon={forecast.icon} size="1x" />
-      <div className='weater-temperature'>{temperatureUnit === 'f' ? forecast.temp_max_f.toFixed(0) : forecast.temp_max.toFixed(0)}</div>
-      <div className='weater-temperature-unit'>
-      <span className="weater-temperature-unit-switch" onClick={toggleUnit}>°{temperatureUnit === "f" ? "F" : "C"}</span>
+  return <div className='current-weather-tile'>
+      <FontAwesomeIcon className='weather-icon' icon={forecast.icon} size="1x" />
+      <div className='weather-temperature'>{temperatureUnit === 'f' ? forecast.temp_max_f.toFixed(0) : forecast.temp_max.toFixed(0)}</div>
+      <div className='weather-temperature-unit'>
+      <span className="weather-temperature-unit-switch" onClick={toggleUnit}>°{temperatureUnit === "f" ? "F" : "C"}</span>
       </div>
   </div>;
 };
