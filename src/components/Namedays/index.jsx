@@ -1,9 +1,9 @@
-import chech from './chech.json';
+import czech from './czech.json';
 
 import './namedays.scss';
 
-const chech_lookup = (date) => {
-    return chech.find((element) => element.date > date).name;
+const czech_lookup = (date) => {
+    return czech.find((element) => element.date > date).name;
 };
 
 const Namedays = () => {
@@ -16,7 +16,7 @@ const Namedays = () => {
     ]; 
     
     const names = {
-        'Chech': dates.map(date => chech_lookup(date))
+        'Czech': dates.map(date => czech_lookup(date))
     };
 
     const items = Object.keys(names).map((key, index) => <div key={index} className='row'><div>{key}</div>{names[key].map((value, idx) => <div key={idx}>{value}</div>)}</div>)
