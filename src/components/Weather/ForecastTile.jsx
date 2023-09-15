@@ -18,7 +18,7 @@ const ForecastTile = ({forecast}) => {
  
     <div>
       <FontAwesomeIcon className='weather-icon' icon={forecast.icon} size="3x" />
-      <div class="weather-description">{forecast.description}</div>
+      <div className="weather-description">{forecast.description}</div>
     </div>
     <div className='weather-temperatures'>
       <div className='weather-temperature'>
