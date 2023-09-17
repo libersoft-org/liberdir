@@ -33,6 +33,7 @@
   --primary-color-lig: 53%;
   --primary-color: hsl(var(--primary-color-hue), var(--primary-color-sat), var(--primary-color-lig));
   --shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+  --selection-color: hsl(var(--primary-color-hue), 100%, 90%);
  }
  
  body {
