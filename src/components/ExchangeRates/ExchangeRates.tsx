@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useLocalStorage } from "@uidotdev/usehooks";
+import { useLocalStorage } from 'usehooks-ts'
 
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import CurrencyValue from "./CurrencyValue";
@@ -10,11 +10,20 @@ import './ExchangeRates.scss';
 
 const requestURL = "https://min-api.cryptocompare.com/data/price?fsym={BASE_CURRENCY}&tsyms={CURRENCIES}"
 
-const ExchangeRates = ({currencies}) => {
-  const [rates, setRates] = useState([]);
+type ExchangeRatesParams = {
+  currencies: string[];
+}
+
+type Rate = {
+  rate: number;
+  currency: string;
+}
+
+export default function ExchangeRates({ currencies }: ExchangeRatesParams) {
+  const [rates, setRates] = useState<Rate[]>([]);
   const [baseCurrency, setBaseCurrency] = useLocalStorage("base-currency", getDefaultCurrency());
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState();
+  const [error, setError] = useState<string | null>();
 
   React.useEffect(() => {
     axios(requestURL.replace("{BASE_CURRENCY}", baseCurrency).replace('{CURRENCIES}', currencies.join(",")))
@@ -42,10 +51,10 @@ const ExchangeRates = ({currencies}) => {
   }, [baseCurrency, currencies]);
 
   let items = rates.map((item) => {
-    return <CurrencyValue selected={item.currency === baseCurrency} 
-      key={item.currency} value={item.rate} currency={item.currency} 
-      onSelect={(c)=>setBaseCurrency(c)}
-      precission={getBestprecissionForValue(item.rate)} clickable/>
+    return <CurrencyValue selected={item.currency === baseCurrency}
+      key={item.currency} value={item.rate} currency={item.currency}
+      onSelect={(c: string) => setBaseCurrency(c)}
+      precission={getBestprecissionForValue(item.rate)} clickable />
   });
 
   return (
@@ -54,18 +63,16 @@ const ExchangeRates = ({currencies}) => {
         <span>Exchange Rates</span>
       </div>
 
-      {isLoading ? 
-        <LoadingSpinner/> : error ? <div className="error">{error}</div> :
-        <div>
-          <div className="exchange-rates-wrapper">
-            <div className="exchage-rates-results" >
-              {items}
+      {isLoading ?
+        <LoadingSpinner small={false} /> : error ? <div className="error">{error}</div> :
+          <div>
+            <div className="exchange-rates-wrapper">
+              <div className="exchage-rates-results" >
+                {items}
+              </div>
             </div>
           </div>
-        </div>
       }
     </div>
   );
 };
-
-export default ExchangeRates;

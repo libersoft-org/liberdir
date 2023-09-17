@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useLocalStorage } from "@uidotdev/usehooks";
+import { useLocalStorage } from 'usehooks-ts'
 
 const ForecastTile = ({forecast}) => {
 
