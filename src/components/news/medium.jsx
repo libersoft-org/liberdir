@@ -46,7 +46,7 @@ const Medium = ({item}) => {
       setError("Unable to fetch news");
       setIsLoading(false);
     });
-  }, [url]);
+  }, [url, fields]);
 
   const items = articles.map(article => <Item key={article.id} article={article} />);
 

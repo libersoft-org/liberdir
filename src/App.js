@@ -16,7 +16,7 @@ function App() {
     <div>
       <div id='header'>
         <div className='inside'>
-          <a className='logo'>LiberDir</a>
+          <a className='logo' href='/'>LiberDir</a>
           <span className='spacer'></span>
           <div className='weather'>
             <Weather current/>
@@ -36,7 +36,7 @@ function App() {
       </div>
       <div id='footer'>
         <div className='inside'>
-          <a href=''>LiberDir.com</a>
+          <a href='/'>LiberDir.com</a>
           , 2023
         </div>
       </div>

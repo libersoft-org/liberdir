@@ -12,7 +12,7 @@ const getTextContentOnly = (html) => {
     );
     const texts = [];
     let node;
-    while(node = walker.nextNode()) {
+    while((node = walker.nextNode())) {
         texts.push(node.nodeValue);
     }
     return texts;

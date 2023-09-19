@@ -1,27 +1,29 @@
 #namedays {
-    .title {
-        font-weight: bold;
-        border-bottom: 2px solid var(--primary-color);
-        padding: 5px 10px;
+  
+  .namedays-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    .namedays-row {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      flex: 1;
+
+      >div {
+        background-color: #fff;
+        text-align: center;
+        padding: 7px;
+        width: 170px;
+        margin: 2px;
+      }
+    }
+  
+    .namedays-header {
+      font-weight: bold;
     }
 
-    .row {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+  }
 
-        > div {
-            display: flex;
-            flex: 1;
-            flex-direction: column;
-            background-color: #fff;
-            align-items: center;
-            padding: 7px;
-            margin-bottom: 5px;
-            margin-right: 5px;
-        }          
-    }
-    .header {
-        font-weight: bold;
-    }
 }

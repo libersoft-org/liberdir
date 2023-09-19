@@ -19,15 +19,17 @@ const Namedays = () => {
         'Czech': dates.map(date => czech_lookup(date))
     };
 
-    const items = Object.keys(names).map((key, index) => <div key={index} className='row'><div>{key}</div>{names[key].map((value, idx) => <div key={idx}>{value}</div>)}</div>)
+    const items = Object.keys(names).map((key, index) => <div key={index} className='namedays-row'><div>{key}</div>{names[key].map((value, idx) => <div key={idx}>{value}</div>)}</div>)
     return <div id='namedays'>
-        <div className='title'>Namedays</div>
-        <div className='row header'>
-            <div></div>
-            <div>Today</div>
-            <div>Tomorrow</div>
+        <div className='main-area-title'>Namedays</div>
+        <div className='namedays-wrapper'>
+          <div className='namedays-row namedays-header'>
+              <div></div>
+              <div>Today</div>
+              <div>Tomorrow</div>
+          </div>
+          {items}
         </div>
-        {items}
     </div>;
 };
 
