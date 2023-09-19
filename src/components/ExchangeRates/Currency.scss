@@ -1,0 +1,97 @@
+@import "flags";
+
+.exchage-rates-currency {
+  display: inline-flex;
+  align-items: center;
+
+  .exchage-rates-currency-code {
+    font-size: 1.1em;
+    opacity: 0.6;
+  }
+
+  .exchage-rates-currency-flag {
+    width: 27px;
+    min-width: 27px;
+    height: 20px;
+    background-repeat: no-repeat;
+    display: block;
+    margin-left: 5px;
+    border: solid 1px lightgray;
+    background-color: white;
+
+    font-size: 10px;
+    line-height: 20px;
+    text-align: center;
+    font-weight: bold;
+    overflow: hidden;
+
+    @include currency-icons();
+  }
+}
+
+.exchage-rates-currency-amount {
+  display: inline-flex;
+  align-items: center;
+  line-height: 20px;
+
+  &.reduced-size {
+    background-color: green;
+  }
+
+  .exchage-rates-currency-amount-value {
+    font-size: 1.3em;
+    font-family: "Courier New", Courier, monospace;
+    padding-right: 5px;
+    font-weight: bold;
+    opacity: 1.0;
+    transition: opacity 0.3s ease-in-out;
+
+    &.value-len-15 {
+      font-size: 0.8em;
+    }
+    &.value-len-14 {
+      font-size: 0.9em;
+    }
+    &.value-len-13 {
+      font-size: 1.0em;
+    }
+    &.value-len-12 {
+      font-size: 1.1em;
+    }
+    &.value-loading {
+      opacity: 0;
+    }
+  }
+
+  input.exchage-rates-currency-amount-value {
+    //display: inline-block;
+    width: 80px;
+    border-radius: 0;
+    border: 1px solid lightgray;
+    text-align: right;
+    padding: 0;
+    padding-right: 2px;
+    margin-right: 2px;
+    height: 27px;
+  }
+
+
+}
+
+.exchage-rates-currency-tile {
+  background-color: white;
+  padding: 7px;
+  width: 170px;
+  margin: 2px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  &.exchage-rates-currency-tile-selected {
+    background-color: var(--selection-color);
+  }
+
+  &.pointer {
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,44 @@
+// icons are taken from https://www.xe.com/currencyconverter/
+
+@mixin currency-icons() {
+  &.usd {
+    background-image: url(./images/usd.svg);
+    color: transparent;
+  }
+  &.eur {
+    background-image: url(./images/eur.svg);
+    color: transparent;
+  }
+  &.gbp {
+    background-image: url(./images/gbp.svg);
+    color: transparent;
+  }
+  &.czk {
+    background-image: url(./images/czk.svg);
+    color: transparent;
+  }
+  &.rsd {
+    background-image: url(./images/rsd.svg);
+    color: transparent;
+  }
+  &.huf {
+    background-image: url(./images/huf.svg);
+    color: transparent;
+  }
+  &.btc {
+    background-image: url(./images/btc.svg);
+    color: transparent;
+  }
+  &.eth {
+    background-image: url(./images/eth.svg);
+    color: transparent;
+  }
+  &.ltc {
+    background-image: url(./images/ltc.svg);
+    color: transparent;
+  }
+  &.xrp {
+    background-image: url(./images/xrp.svg);
+    color: transparent;
+  }
+}
