@@ -3,11 +3,13 @@ export function getDefaultCurrency() {
   return defaultCurrency;
 }
 
-export function getBestprecissionForValue(v) {
+export function getBestPrecisionForValue(v) {
   if (v === 1.0) return 0;
+  if (v < 0) return 0;
 
   if (v > 1000) return 0;
   if (v > 100) return 1;
+
 
   if (v < 0.0000001) return 9;
   if (v < 0.000001) return 8;

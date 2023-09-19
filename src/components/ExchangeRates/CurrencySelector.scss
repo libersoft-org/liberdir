@@ -1,0 +1,27 @@
+.exchange-rates-currency-selector {
+  .currency-dropdown {
+    .dropdown-toggle {
+      padding: 0;
+      border-radius: 0;
+      background-color: transparent;
+      border-width: 0;
+    }
+  }
+
+  .dropdown-menu {
+    min-width: auto;
+  }
+
+  .currency-combo {
+    padding: 4px;
+
+    .currency-combo-select {
+      border: solid 1px green;
+
+      .currency-combo-option {
+        border: solid 1px red;
+        padding: 10px;
+      }
+    }
+  }
+}

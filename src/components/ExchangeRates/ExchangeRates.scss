@@ -1,107 +1,18 @@
 #exchange-rates {
   .exchange-rates-wrapper {
-    .exchage-rates-results {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      flex: 1;
-    }
-  }
-
-  .exchage-rates-currency-value {
-    background-color: white;
-    padding: 7px;
-    width: 170px;
-    margin: 2px;
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
-
-    &.exchage-rates-currency-value-selected {
-      background-color: var(--selection-color);
-    }
-
-    .exchage-rates-currency-value-currency {
-      font-size: 1.1em;
-      opacity: 0.6;
-    }
-    .exchage-rates-currency-value-number {
-      font-size: 1.3em;
-      font-family: "Courier New", Courier, monospace;
-      padding-right: 5px;
-      font-weight: bold;
-      &.precission-9 {
-        font-size: 0.9em;
-      }
-      &.precission-8 {
-        font-size: 1em;
-      }
-      &.precission-7 {
-        font-size: 1.1em;
-      }
-    }
-
-    &.pointer {
-      cursor: pointer;
-    }
-
-    .exchage-rates-currency-value-icon {
-      width: 28px;
-      min-width: 28px;
-      height: 20px;
-      background-repeat: no-repeat;
-      display: block;
-      margin-left: 5px;
-      border: solid 1px lightgray;
-      background-color: white;
-
-      font-size: 10px;
-      line-height: 20px;
-      text-align: center;
-      font-weight: bold;
-      overflow: hidden;
-
-      // icons are taken from https://www.xe.com/currencyconverter/
-      &.usd {
-        background-image: url(./images/usd.svg);
-        color: transparent;
-      }
-      &.eur {
-        background-image: url(./images/eur.svg);
-        color: transparent;
-      }
-      &.gbp {
-        background-image: url(./images/gbp.svg);
-        color: transparent;
-      }
-      &.czk {
-        background-image: url(./images/czk.svg);
-        color: transparent;
-      }
-      &.rsd {
-        background-image: url(./images/rsd.svg);
-        color: transparent;
-      }
-      &.huf {
-        background-image: url(./images/huf.svg);
-        color: transparent;
-      }
-      &.btc {
-        background-image: url(./images/btc.svg);
-        color: transparent;
-      }
-      &.eth {
-        background-image: url(./images/eth.svg);
-        color: transparent;
-      }
-      &.ltc {
-        background-image: url(./images/ltc.svg);
-        color: transparent;
-      }
-      &.xrp {
-        background-image: url(./images/xrp.svg);
-        color: transparent;
-      }
-    }
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex: 1;
   }
 }
+
+#currency-converter {
+  .currency-converter-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex: 1;
+  }
+}
+

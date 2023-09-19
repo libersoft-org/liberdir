@@ -3,8 +3,8 @@ import axios from "axios";
 import { useLocalStorage } from 'usehooks-ts'
 
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
-import CurrencyValue from "./CurrencyValue";
-import { getBestprecissionForValue, getDefaultCurrency } from "./functions";
+import CurrencyTile from "./CurrencyTile";
+import { getDefaultCurrency } from "./functions";
 
 import './ExchangeRates.scss';
 
@@ -23,6 +23,7 @@ export default function ExchangeRates({ currencies }: ExchangeRatesParams) {
   const [rates, setRates] = useState<Rate[]>([]);
   const [baseCurrency, setBaseCurrency] = useLocalStorage("base-currency", getDefaultCurrency());
   const [isLoading, setIsLoading] = useState(true);
+  const [reloading, setReloading] = useState(false);
   const [error, setError] = useState<string | null>();
 
   React.useEffect(() => {
@@ -43,18 +44,19 @@ export default function ExchangeRates({ currencies }: ExchangeRatesParams) {
         setRates(rates);
         setIsLoading(false);
         setError(null);
+        setReloading(false);
       })
       .catch((err) => {
         setError("Unable to fetch rates data. " + err);
         setIsLoading(false);
+        setReloading(false);
       });
   }, [baseCurrency, currencies]);
 
   let items = rates.map((item) => {
-    return <CurrencyValue selected={item.currency === baseCurrency}
-      key={item.currency} value={item.rate} currency={item.currency}
-      onSelect={(c: string) => setBaseCurrency(c)}
-      precission={getBestprecissionForValue(item.rate)} clickable />
+    return <CurrencyTile selected={item.currency === baseCurrency} key={item.currency} value={item.rate}
+      currency={item.currency} onSelect={(c: string) => { setReloading(true); setBaseCurrency(c) }}
+      clickable loading={reloading} />
   });
 
   return (
@@ -67,9 +69,7 @@ export default function ExchangeRates({ currencies }: ExchangeRatesParams) {
         <LoadingSpinner small={false} /> : error ? <div className="error">{error}</div> :
           <div>
             <div className="exchange-rates-wrapper">
-              <div className="exchage-rates-results" >
-                {items}
-              </div>
+              {items}
             </div>
           </div>
       }
