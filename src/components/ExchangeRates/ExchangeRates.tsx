@@ -8,7 +8,8 @@ import { getDefaultCurrency } from "./functions";
 
 import './ExchangeRates.scss';
 
-const requestURL = "https://min-api.cryptocompare.com/data/price?fsym={BASE_CURRENCY}&tsyms={CURRENCIES}"
+// more info https://github.com/fawazahmed0/currency-api
+const requestURL = "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/{BASE_CURRENCY}.min.json";
 
 type ExchangeRatesParams = {
   currencies: string[];
@@ -27,17 +28,19 @@ export default function ExchangeRates({ currencies }: ExchangeRatesParams) {
   const [error, setError] = useState<string | null>();
 
   React.useEffect(() => {
-    axios(requestURL.replace("{BASE_CURRENCY}", baseCurrency).replace('{CURRENCIES}', currencies.join(",")))
+    axios(requestURL.replace("{BASE_CURRENCY}", baseCurrency.toLowerCase()))
       .then((response) => {
         let rates = [];
+        const data = response.data[baseCurrency.toLowerCase()];
 
         for (let i = 0; i < currencies.length; i++) {
           const currency = currencies[i];
-          if (!response.data[currency]) {
+          const currencyLC = currency.toLowerCase();
+          if (!data[currencyLC]) {
             rates.push({ currency, rate: -1 });
             continue;
           };
-          const rate = response.data[currency];
+          const rate = data[currencyLC];
           rates.push({ currency, rate });
         }
 
@@ -55,7 +58,12 @@ export default function ExchangeRates({ currencies }: ExchangeRatesParams) {
 
   let items = rates.map((item) => {
     return <CurrencyTile selected={item.currency === baseCurrency} key={item.currency} value={item.rate}
-      currency={item.currency} onSelect={(c: string) => { setReloading(true); setBaseCurrency(c) }}
+      currency={item.currency} onSelect={(c: string) => { 
+        if (baseCurrency !== c) {
+          setReloading(true); 
+          setBaseCurrency(c) 
+        }
+      }}
       clickable loading={reloading} />
   });
 

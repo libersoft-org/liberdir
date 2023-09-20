@@ -6,7 +6,7 @@ COPY . .
 RUN npm install
 RUN npm run-script build
 
-FROM nginx:1.14.1-alpine
+FROM --platform=linux/amd64 nginx:1.14.1-alpine 
 
 EXPOSE 8080
 
@@ -17,8 +17,6 @@ CMD ["/bin/sh",  "-c",  "exec nginx -g 'daemon off;'"]
 
 # TO Build
 # docker build -t liberdir-ui:test -t mligor/liberdir-ui:latest .
-# TO Build specific platform
-# docker build -t liberdir-ui:test -t mligor/liberdir-ui:latest --platform linux/amd64 .
 
 # TO Run
 # docker run --rm -ti --name liberdir-ui-test -p8080:8080 liberdir-ui:test
