@@ -61,24 +61,17 @@ export function CurrencyAmount(params: Params) {
     sufix = ""
   }
 
-  // if (params.loading) {
-  //   strVal = "####";
-  //   sufix = "";
-  // }
-
   const className = "exchage-rates-currency-amount-value value-len-" + len + (params.loading ? " value-loading" : "");
 
   function doChanveValue(val: string) {
     setAmount(val)
 
-//    console.log(val);
     let valNr = parseFloat(val);
     if (isNaN(valNr)) valNr = -1;
     if (params.onValueChange) {
       params.onValueChange(valNr)
     }
   }
-
 
   return (
     <div className={"exchage-rates-currency-amount"}>

@@ -5,8 +5,8 @@ import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import { useLocalStorage } from "usehooks-ts";
 import CurrencyTile from "./CurrencyTile";
 
-const requestURL =
-  "https://min-api.cryptocompare.com/data/price?fsym={BASE_CURRENCY}&tsyms={CURRENCIES}";
+// more info https://github.com/fawazahmed0/currency-api
+const requestURL = "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/{BASE_CURRENCY}.min.json";
 
 type Params = {
   source: string;
@@ -29,18 +29,20 @@ export default function CurrencyConverter(params: Params) {
   React.useEffect(() => {
 
     axios(
-      requestURL.replace("{BASE_CURRENCY}", source).replace("{CURRENCIES}", target)
+      requestURL.replace("{BASE_CURRENCY}", source.toLowerCase())
     )
       .then((response) => {
+        const sourceLC = source.toLowerCase();
+        const targetLC = target.toLowerCase();
         setReloading(false);
-        if (!response.data[target]) {
+        if (!response.data[sourceLC] || !response.data[sourceLC][targetLC]) {
           setIsLoading(false);
           setError("no rates found for " + source + " to " + target);
           setConvertedValue(-1);
           return;
         }
 
-        const rate = response.data[target];
+        const rate = response.data[sourceLC][targetLC];
         setConvertedValue(rate * value);
         setIsLoading(false);
         setError(null);
@@ -63,10 +65,25 @@ export default function CurrencyConverter(params: Params) {
 
           <div className="currency-converter-wrapper">
             <CurrencyTile currency={source} value={value} currencyList={params.currencies}
-              onSelect={(v) => { setReloading(true); setSource(v) }}
-              onValueChange={(v) => { setReloading(true); setValue(v) }} editable></CurrencyTile>
+              onSelect={(v) => { 
+                if (source !== v) {
+                  setReloading(true); 
+                  setSource(v);
+                }
+              }}
+              onValueChange={(v) => { 
+                if (value !== v) {
+                  setReloading(true); 
+                  setValue(v) 
+                }
+              }} editable></CurrencyTile>
             <CurrencyTile currency={target} value={convertedValue} currencyList={params.currencies}
-              onSelect={(v) => { setReloading(true); setTarget(v) }} loading={reloading}></CurrencyTile>
+              onSelect={(v) => {
+                if (target !== v) {
+                  setReloading(true);
+                  setTarget(v);
+                }
+              }} loading={reloading}></CurrencyTile>
           </div>
 
         </>)}
