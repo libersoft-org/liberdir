@@ -1,12 +1,7 @@
-import React from 'react';
 import Medium from './medium';
 import './news.css'
 
 var news = require('./sources.json');
-
-if (process.env.NODE_ENV === 'development') {
-  news = require('./sources.dev.json')
-}
 
 const News = () => {
   return <div id='news'>
