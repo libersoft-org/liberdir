@@ -1,28 +1,50 @@
-import czech from './czech.json';
-import { today, tomorrow } from 'nevnap';
+import React, { useState } from 'react';
+import axios from 'axios';
 
 import './namedays.scss';
 
-const czech_lookup = (date) => {
-    return czech.find((element) => element?.date > date)?.name;
-};
+const urls = [
+    'https://nameday.abalin.net/api/V1/today',
+    'https://nameday.abalin.net/api/V1/tomorrow',
+]
+
 
 const Namedays = () => {
-    const today_date = new Date();
-    const tomorrow_date = new Date(today_date);
-    tomorrow_date.setDate(today_date.getDate() + 1);
-    const dates = [
-        today_date.toISOString().slice(0, 10),
-        tomorrow_date.toISOString().slice(0, 10)
-    ]; 
+  const [names, setNames] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  React.useEffect(() => {
+    const requests = urls.map((url) => axios.get(url));
+    const countries = {
+        'cz': 'Czech', 
+        'hr': 'Croatia',
+        'hu': 'Hungary',
+        'pl': 'Poland',
+        'sk': 'Slovakia',
+        'us': 'United States',
+    }
     
-    const names = {
-        'Czech': dates.map(date => czech_lookup(date)),
-        'Hungarian': [
-            today().join(', '),
-            tomorrow().join(', '),
-        ]
-    };
+    axios.all(requests).then((responses) => {
+      let items = {};
+      for (const response of responses) {
+        for (const [key, value] of Object.entries(countries)) {
+          if (!(value in items)) {
+            items[value] = [];
+          }
+          items[value].push(response.data.nameday[key]);
+        }
+      }
+    
+      setNames(items);
+      setIsLoading(false);
+      setError("");
+    }).catch(() => {
+      setError("Unable to fetch news");
+      setIsLoading(false);
+    });
+  }, [urls]);
+    
 
     const items = Object.keys(names).map((key, index) => {
         return <div key={index} className='namedays-row'>
