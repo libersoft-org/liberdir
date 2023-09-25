@@ -1,25 +1,57 @@
-import czech from './czech.json';
+import React, { useState } from 'react';
+import axios from 'axios';
 
 import './namedays.scss';
 
-const czech_lookup = (date) => {
-    return czech.find((element) => element.date > date).name;
-};
+const urls = [
+    'https://nameday.abalin.net/api/V1/today',
+    'https://nameday.abalin.net/api/V1/tomorrow',
+]
+
 
 const Namedays = () => {
-    const today = new Date();
-    const tomorrow = new Date(today);
-    tomorrow.setDate(today.getDate() + 1);
-    const dates = [
-        today.toISOString().slice(0, 10),
-        tomorrow.toISOString().slice(0, 10)
-    ]; 
-    
-    const names = {
-        'Czech': dates.map(date => czech_lookup(date))
-    };
+  const [names, setNames] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState("");
 
-    const items = Object.keys(names).map((key, index) => <div key={index} className='namedays-row'><div>{key}</div>{names[key].map((value, idx) => <div key={idx}>{value}</div>)}</div>)
+  React.useEffect(() => {
+    const requests = urls.map((url) => axios.get(url));
+    const countries = {
+        'cz': 'Czech', 
+        'hr': 'Croatia',
+        'hu': 'Hungary',
+        'pl': 'Poland',
+        'sk': 'Slovakia',
+        'us': 'United States',
+    }
+    
+    axios.all(requests).then((responses) => {
+      let items = {};
+      for (const response of responses) {
+        for (const [key, value] of Object.entries(countries)) {
+          if (!(value in items)) {
+            items[value] = [];
+          }
+          items[value].push(response.data.nameday[key]);
+        }
+      }
+    
+      setNames(items);
+      setIsLoading(false);
+      setError("");
+    }).catch(() => {
+      setError("Unable to fetch news");
+      setIsLoading(false);
+    });
+  }, [urls]);
+    
+
+    const items = Object.keys(names).map((key, index) => {
+        return <div key={index} className='namedays-row'>
+            <div>{key}</div>
+            {names[key].map((value, idx) => <div key={idx}>{value}</div>)}
+        </div>
+    });
     return <div id='namedays'>
         <div className='main-area-title'>Namedays</div>
         <div className='namedays-wrapper'>
